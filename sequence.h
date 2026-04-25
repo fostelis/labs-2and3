@@ -42,7 +42,7 @@ public:
             result = result->append(func(get(i)));
         }
         return result;
-    } //с оберткой для любого вызываемого объекта
+    }
 
     sequence<T>* where(std::function<bool(const T&)> predicate) {
         sequence<T>* result = new mutable_array_sequence<T>();
