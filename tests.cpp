@@ -8,7 +8,7 @@
 #include "bit_sequence.h"
 #include "algorithms.h"
 #include "tests.h"
-#include "io_utils.h" //единственное место с выводом
+#include "io_utils.h"
 
 using namespace std;
 

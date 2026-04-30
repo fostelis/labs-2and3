@@ -33,7 +33,6 @@ public:
         return copy;
     }
 
-    //✅ ИСПРАВЛЕНО: добавлена проверка границ
     piecewise_function* remove_segment(int index) override {
         if (!this->segments_ || index < 0 || index >= this->segments_->get_length()) {
             throw index_out_of_range_exception("remove_segment: index out of range");

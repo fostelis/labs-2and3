@@ -17,7 +17,6 @@
 
 using namespace std;
 
-//объявление ф-ии из tests_piecewise.cpp (НЕ include .cpp!)
 void run_piecewise_tests();
 
 void run_lab_2();

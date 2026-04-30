@@ -127,7 +127,6 @@ protected:
     }
 };
 
-//out-of-line определение
 template<class T>
 array_sequence<T>* array_sequence<T>::get_subsequence(int start, int end) const {
     if (start < 0 || end >= this->items_->get_size() || start > end)
@@ -139,7 +138,6 @@ array_sequence<T>* array_sequence<T>::get_subsequence(int start, int end) const 
     return result;
 }
 
-//CRTP-версии (сокращённо, только ключевые изменения)
 template<class T>
 class mutable_array_sequence_crtp : public sequence_crtp<T, mutable_array_sequence_crtp<T>> {
 private:

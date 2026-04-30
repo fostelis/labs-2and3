@@ -100,7 +100,7 @@ public:
         data_ = new_data;
         size_ = new_size;
     }
-//перегрузка операторов, const и нет
+
     T& operator[](int index) {
         if (index < 0 || index >= size_) {
             throw index_out_of_range_exception("index out of range");

@@ -229,23 +229,19 @@ void test_clone_independence() {
     assert_pw(*i_cl == *i1, "ci: immutable clone equality"); delete i1; delete i_cl;
 }
 
-// ✅ ИСПРАВЛЕНО: убраны delete для стековых объектов
 void test_redefine_boundary() {
     std::cout << "\n=== Redefine Boundary ===" << std::endl;
     mutable_piecewise_function pf; pf.add_segment(0, 10, 2, 0);
     auto* rb1 = dynamic_cast<mutable_piecewise_function*>(pf.redefine_on_interval(0, 0, 5, 5));
     assert_pw(rb1->get_segment_count() == 1, "rb: zero-length start split");
-    // delete rb1; // Убрано: rb1 указывает на stack pf
 
     auto* rb2 = dynamic_cast<mutable_piecewise_function*>(pf.redefine_on_interval(5, 10, 0, 0));
     assert_pw(rb2->get_segment_count() == 2, "rb: exact end overlap");
     assert_pw(std::abs(rb2->evaluate(7.5) - 0.0) < 1e-9, "rb: exact end overlap eval");
-    // delete rb2; // Убрано
 
     auto* rb3 = dynamic_cast<mutable_piecewise_function*>(pf.redefine_on_interval(-5, 15, 1, 0));
     assert_pw(rb3->get_segment_count() <= 2, "rb: full cover redefine");
     assert_pw(std::abs(rb3->evaluate(5) - 5.0) < 1e-9, "rb: full cover eval");
-    // delete rb3; // Убрано
 }
 
 void test_algorithms_reduce_multiply() {

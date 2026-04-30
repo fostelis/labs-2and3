@@ -8,7 +8,6 @@
 inline piecewise_function* operator+(const piecewise_function& lhs, const piecewise_function& rhs) {
     piecewise_function* res = lhs.clone();
     piecewise_function* concat_res = res->concat(rhs);
-    //если concat вернул новый объект (immutable), удаляем старый клон
     if (concat_res != res) delete res;
     return concat_res;
 }

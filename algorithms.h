@@ -45,7 +45,7 @@ sequence<sequence<T>*>* get_all_prefixes(const sequence<T>& seq) {
 
 template<class T>
 sequence<double>* moving_average_3(const sequence<T>& seq) {
-    sequence<double>* result = new mutable_array_sequence<double>(); //изменено на sequence*
+    sequence<double>* result = new mutable_array_sequence<double>();
     for (int i = 0; i < seq.get_length(); ++i) {
         double sum = seq.get(i);
         int count = 1;
@@ -58,7 +58,7 @@ sequence<double>* moving_average_3(const sequence<T>& seq) {
 
 template<class T>
 sequence<T>* sum_with_reflection(const sequence<T>& seq) {
-    sequence<T>* result = new mutable_array_sequence<T>(); //изменено на sequence*
+    sequence<T>* result = new mutable_array_sequence<T>();
     int n = seq.get_length();
     for (int i = 0; i < n; ++i) {
         result = result->append(seq.get(i) + seq.get(n - 1 - i));

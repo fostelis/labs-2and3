@@ -59,7 +59,6 @@ public:
         return this;
     }
 
-    //исправлено: & вместо *, возвращаем sequence<bit>* для совместимости
     sequence<bit>* concat(const sequence<bit>& other) override {
         bit_sequence* result = new bit_sequence(*this);
         for (int i = 0; i < other.get_length(); ++i)
@@ -69,7 +68,6 @@ public:
 
     sequence<bit>* clone() const override { return new bit_sequence(*this); }
 
-    //битовые операции
     bit_sequence* bit_and(const bit_sequence* other) const {
         if (items_->get_size() != other->items_->get_size())
             throw index_out_of_range_exception("size mismatch");
